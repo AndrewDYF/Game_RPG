@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{8FF2ACF0-355A-F061-24E2-BB5C9E6674A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -86,6 +87,7 @@
     <Compile Include="Assets\Scripts\PlayerButton.cs" />
     <Compile Include="Assets\Scripts\RootMotionControl.cs" />
     <Compile Include="Assets\Scripts\StateManager.cs" />
+    <Compile Include="Assets\Scripts\test1.cs" />
     <Compile Include="Assets\Scripts\TesterFSMOnEnter.cs" />
     <Compile Include="Assets\Scripts\TesterJoy.cs" />
     <Compile Include="Assets\Scripts\TriggerControl.cs" />
