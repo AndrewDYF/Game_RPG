@@ -8,6 +8,6 @@ namespace Assets.Scripts
 {
     class test1
     {
-        ;
+        
     }
 }

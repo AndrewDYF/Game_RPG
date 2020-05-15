@@ -9,7 +9,7 @@ public class ActorManager : MonoBehaviour
     public WeaponManager wm;
     public StateManager sm;
     public PlayController ac;
-    float damageValue = -5;
+    float damageValue = -10;
 
     // Start is called before the first frame update
     void Awake()
