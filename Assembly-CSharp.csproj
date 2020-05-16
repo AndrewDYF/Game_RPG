@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\FSMOnEnter.cs" />
     <Compile Include="Assets\Scripts\FSMOnExit.cs" />
     <Compile Include="Assets\Scripts\FSMOnUpdate.cs" />
+    <Compile Include="Assets\Scripts\GUIManager.cs" />
     <Compile Include="Assets\Scripts\Helper\TransformHelpers.cs" />
     <Compile Include="Assets\Scripts\IActorManagerInterface.cs" />
     <Compile Include="Assets\Scripts\IUserInput.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\MyTimer.cs" />
     <Compile Include="Assets\Scripts\OnGroundSenser.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlayController.cs" />
     <Compile Include="Assets\Scripts\PlayerButton.cs" />
     <Compile Include="Assets\Scripts\RootMotionControl.cs" />

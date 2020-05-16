@@ -14,7 +14,8 @@ public class JoystickInput : IUserInput
     public string btnB = "btn1";
     public string btnX = "btn2";
     public string btnY = "btn3";
-    
+    public string btnS = "btn7";
+
     public string btnLB = "btn4";
     public string btnLT = "axis9";
     public string btnRB = "btn5";
@@ -30,6 +31,7 @@ public class JoystickInput : IUserInput
     public PlayerButton buttonRB = new PlayerButton();
     public PlayerButton buttonRT = new PlayerButton();
     public PlayerButton buttonJstick = new PlayerButton();
+    public PlayerButton buttonS = new PlayerButton();
 
 
 
@@ -80,9 +82,10 @@ public class JoystickInput : IUserInput
         buttonRB.Tick(Input.GetButton(btnRB));
         buttonRT.TickTrigger(Input.GetAxis(btnRT));
         buttonJstick.Tick(Input.GetButton(btnJstick));
-        
+        buttonS.Tick(Input.GetButton(btnS));
 
-        
+
+
 
 
 
@@ -112,12 +115,15 @@ public class JoystickInput : IUserInput
         roll = buttonA.OnRepressed && buttonA.IsDelaying;
         run = ((buttonA.IsPressing && !buttonA.IsDelaying) || buttonA.IsExtending)&&!roll;
         defense = buttonLT.IsPressing;
-        Attack = buttonX.OnPressed;
+        
         lb = buttonLB.OnPressed;
         lt = buttonLT.OnPressed;
         rb = buttonRB.OnPressed;
         rt = buttonRT.OnPressed;
+        
+        mids= buttonS.OnPressed;
 
+        //Attack = buttonX.OnPressed;
         //Attack = buttonLT.OnPressed;
         jump = buttonA.OnPressed && buttonA.IsExtending;
         lockon = buttonJstick.OnPressed;

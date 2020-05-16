@@ -7,6 +7,9 @@ public class PlayController : MonoBehaviour
     // Start is called before the first frame update
 
 
+    public GameObject pausemenu;
+    public GameObject helppage;
+
     public GameObject model;
     public CameraController camcon;
     public IUserInput pi;
@@ -87,6 +90,22 @@ public class PlayController : MonoBehaviour
         {
             anim.SetTrigger("roll");
             canAttack = false;
+        }
+
+        if (pi.mids)//暂停
+        {
+            if (pausemenu.activeSelf)//如果已经暂停
+            {
+                pausemenu.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                pausemenu.SetActive(true);
+                helppage.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+
+            }
         }
 
         //if(rigid.velocity.magnitude>1.0f)

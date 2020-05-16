@@ -43,7 +43,7 @@ public class CameraController : MonoBehaviour
         {
             camera = Camera.main.gameObject;
             lockDot.enabled = false;
-            Cursor.lockState = CursorLockMode.Locked;//锁定屏幕
+            Cursor.lockState = CursorLockMode.Locked;//锁定鼠标
         }
         
         lockState = false;

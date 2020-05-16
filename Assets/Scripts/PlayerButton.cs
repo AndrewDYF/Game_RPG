@@ -18,7 +18,7 @@ public class PlayerButton
     private MyTimer delayTimer = new MyTimer();
 
     float extendingDuration = 0.2f;//松开后状态持续时间
-    float delayingDuration = 0.15f;//按下后状态持续时间
+    float delayingDuration = 0.2f;//按下后状态持续时间
 
     public void Tick(bool input)
     {

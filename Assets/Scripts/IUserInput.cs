@@ -27,6 +27,7 @@ public abstract class IUserInput : MonoBehaviour
     public bool lt;
     public bool rb;
     public bool rt;
+    public bool mids;
 
     [Header("===Others===")]
     public bool inputenble = true;

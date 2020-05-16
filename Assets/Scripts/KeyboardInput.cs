@@ -13,10 +13,10 @@ public class KeyboardInput : IUserInput
     public string KeyRight="d";
 
     public string KeyA = "left shift";
-    public string KeyB;
-    public string KeyC;
-    public string KeyD;
-    public string KeyE;
+    public string KeyB = "space";
+    public string KeyC= "mouse 0";
+    public string KeyD= "mouse 1";
+    public string KeyE= "escape";
     public string KeyJUp;
     public string KeyJRight;
     public string KeyJLeft;
@@ -70,7 +70,7 @@ public class KeyboardInput : IUserInput
         buttonB.Tick(Input.GetKey(KeyB));
         buttonC.Tick(Input.GetKey(KeyC));
         buttonD.Tick(Input.GetKey(KeyD));
-        //buttonE.Tick(Input.GetKey(KeyE));
+        buttonE.Tick(Input.GetKey(KeyE));
 
         //鼠标控制
         JUp = Input.GetAxis("Mouse Y")* 2 * mouseSensitivityY;
@@ -103,10 +103,15 @@ public class KeyboardInput : IUserInput
         Dvec= UpDown2 * transform.forward + LeftRight2 * transform.right;
 
         run = buttonA.IsPressing;
-        jump = buttonB.OnPressed;
+        jump = buttonB.OnPressed && run;
         defense = buttonD.IsPressing;
         Attack = buttonC.OnPressed;
-        
+        rb= buttonC.OnPressed;
+
+        roll = buttonB.OnPressed;
+
+        mids = buttonE.OnPressed;
+
 
 
         //run = Input.GetKey(KeyA);//按住KeyA切换跑步
