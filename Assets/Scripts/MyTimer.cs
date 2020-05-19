@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MyTimer
 {
-    public enum STATE//创建枚举
+    public enum STATE//创建状态机枚举
     {
         IDLE,
         RUN,

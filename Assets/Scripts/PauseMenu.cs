@@ -42,17 +42,33 @@ public class PauseMenu : MonoBehaviour
     {
         //ac.GetComponent<KeyboardInput>().enabled = true;
         //ac.GetComponent<JoystickInput>().enabled = false;
-        ac.GetComponent<PlayController>().pi = new KeyboardInput();
+        //ac.GetComponent<PlayController>().pi = new KeyboardInput();
+        //IUserInput[] inputs = GetComponents<IUserInput>();
+        //foreach (var input in inputs)
+        //{
+        //    if (input.enabled == true)
+        //    {
+        //        ac.pi = input;
+        //        break;
+        //    }
+        //
+        //
+        //}
+
+
+        //ac.GetComponent<PlayController>().pi = GetComponent<IUserInput>();
     }
 
     public void ChooseJoystick()
     {
-        ac.GetComponent<KeyboardInput>().enabled = false;
-        ac.GetComponent<JoystickInput>().enabled = true;
-        ac.GetComponent<PlayController>().pi = new JoystickInput();
+        //ac.GetComponent<KeyboardInput>().enabled = false;
+        //ac.GetComponent<JoystickInput>().enabled = true;
+        //ac.GetComponent<PlayController>().pi = GetComponents<IUserInput>();
 
-
-
+        //
+        //IUserInput[] inputs = GetComponents<IUserInput>();
+        //
+        //ac.GetComponent<PlayController>().pi = inputs[1];
 
 
     }

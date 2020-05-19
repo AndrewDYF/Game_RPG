@@ -72,6 +72,7 @@ public class ActorManager : MonoBehaviour
 
     public void TryDoDamage()
     {
+        damageValue = -sm.playerATK;
         if (sm.isImmortal) { 
         }
         else if (sm.isDefense == true)
@@ -82,6 +83,7 @@ public class ActorManager : MonoBehaviour
         {
             if (sm.HP > 0)
             {
+                
                 sm.UpdateHP(damageValue);
                 if (sm.HP > 0)
                 {

@@ -26,6 +26,7 @@ public class PlayController : MonoBehaviour
     public PhysicMaterial frictionZero;
 
     [SerializeField]
+    private StateManager sm;
     private Animator anim;  
     private Rigidbody rigid;
     private Vector3 planarVec;

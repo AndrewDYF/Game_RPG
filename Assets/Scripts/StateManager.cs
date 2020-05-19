@@ -7,8 +7,10 @@ public class StateManager : IActorManagerInterface
 
     //public ActorManager am;
 
-    public float HP = 20.0f;
-    public float HPmax = 20.0f;
+    public float playerLv = 1.0f;
+    public float HP = 50.0f;
+    public float HPmax = 50.0f;
+    public float playerATK = 20f;
 
     [Header("======1st order state flags======")]
     public bool isGround;
@@ -67,4 +69,13 @@ public class StateManager : IActorManagerInterface
         isImmortal = isRoll || isJab;
 
     }
+
+    public void PlayerLevelUp()
+    {
+        HPmax = 50 + playerLv * 10;
+        HP = HPmax;
+        playerATK += 3;
+
+    }
+
 }
