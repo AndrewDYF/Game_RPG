@@ -13,4 +13,9 @@ public class WeaponController : MonoBehaviour
         wdata = GetComponentInChildren<WeaponData>();
     }
 
+    public float GetATK()
+    {
+        return wdata.ATK;
+    }
+
 }

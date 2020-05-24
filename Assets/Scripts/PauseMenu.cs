@@ -9,14 +9,19 @@ public class PauseMenu : MonoBehaviour
 
 
     public PlayController ac;
+    public GUIManager UIM;
+    public CameraController cc;
     //public KeyboardInput ki;
     //public JoystickInput ji;
 
     public GameObject player;
     public GameObject pausemenu;
     public GameObject helppage;
+
+    
     public void ContinueGame()
     {
+        UIM.StartGame();
         pausemenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -40,20 +45,21 @@ public class PauseMenu : MonoBehaviour
 
     public void ChooseKeyboard()
     {
-        //ac.GetComponent<KeyboardInput>().enabled = true;
-        //ac.GetComponent<JoystickInput>().enabled = false;
-        //ac.GetComponent<PlayController>().pi = new KeyboardInput();
-        //IUserInput[] inputs = GetComponents<IUserInput>();
-        //foreach (var input in inputs)
-        //{
-        //    if (input.enabled == true)
-        //    {
-        //        ac.pi = input;
-        //        break;
-        //    }
-        //
-        //
-        //}
+        ac.GetComponent<KeyboardInput>().enabled = true;
+        ac.GetComponent<JoystickInput>().enabled = false;
+
+        IUserInput[] inputs = ac.GetComponents<IUserInput>();
+        foreach (var input in inputs)
+        {
+            if (input.enabled == true)
+            {
+                ac.pi = input;
+                
+                break;
+            }
+        
+        
+        }
 
 
         //ac.GetComponent<PlayController>().pi = GetComponent<IUserInput>();
@@ -61,16 +67,21 @@ public class PauseMenu : MonoBehaviour
 
     public void ChooseJoystick()
     {
-        //ac.GetComponent<KeyboardInput>().enabled = false;
-        //ac.GetComponent<JoystickInput>().enabled = true;
-        //ac.GetComponent<PlayController>().pi = GetComponents<IUserInput>();
-
-        //
-        //IUserInput[] inputs = GetComponents<IUserInput>();
-        //
-        //ac.GetComponent<PlayController>().pi = inputs[1];
-
-
+        ac.GetComponent<KeyboardInput>().enabled = false;
+        ac.GetComponent<JoystickInput>().enabled = true;
+        //ac.GetComponent<PlayController>().pi = new JoystickInput();
+        IUserInput[] inputs = ac.GetComponents<IUserInput>();
+        foreach (var input in inputs)
+        {
+            if (input.enabled == true)
+            {
+                ac.pi = input;
+                
+                break;
+            }
+        }
     }
+
+    
 
 }

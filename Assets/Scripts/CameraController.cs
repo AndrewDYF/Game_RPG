@@ -54,6 +54,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        pi = ac.pi;
         if (lockTarget != null)
         {
             if (!isAI)

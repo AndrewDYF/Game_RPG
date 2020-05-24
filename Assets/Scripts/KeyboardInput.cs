@@ -17,6 +17,7 @@ public class KeyboardInput : IUserInput
     public string KeyC= "mouse 0";
     public string KeyD= "mouse 1";
     public string KeyE= "escape";
+    public string KeyF = "mouse 2";
     public string KeyJUp;
     public string KeyJRight;
     public string KeyJLeft;
@@ -71,6 +72,7 @@ public class KeyboardInput : IUserInput
         buttonC.Tick(Input.GetKey(KeyC));
         buttonD.Tick(Input.GetKey(KeyD));
         buttonE.Tick(Input.GetKey(KeyE));
+        buttonF.Tick(Input.GetKey(KeyF));
 
         //鼠标控制
         JUp = Input.GetAxis("Mouse Y")* 2 * mouseSensitivityY;
@@ -107,6 +109,7 @@ public class KeyboardInput : IUserInput
         defense = buttonD.IsPressing;
         Attack = buttonC.OnPressed;
         rb= buttonC.OnPressed;
+        lockon = buttonF.OnPressed;
 
         roll = buttonB.OnPressed;
 

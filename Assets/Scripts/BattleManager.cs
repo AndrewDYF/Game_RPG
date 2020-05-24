@@ -7,8 +7,10 @@ public class BattleManager : IActorManagerInterface
 {
 
     private CapsuleCollider defCol;
+
+    public float atknum;
     //public ActorManager am;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +30,10 @@ public class BattleManager : IActorManagerInterface
 
     void OnTriggerEnter(Collider col)
     {
-        print(col.name);
+        //print(col.name);
         if (col.tag == "Weapon")
         {
+            atknum= col.gameObject.GetComponent<WeaponData>().ATK;
             am.TryDoDamage();
         }
     }
