@@ -73,6 +73,10 @@ public class ActorManager : MonoBehaviour
     public void TryDoDamage()
     {
         damageValue = -(sm.playerATK+bm.atknum);
+        if (ac.camcon.isAI == false)
+        {
+            damageValue = -(bm.atknum);
+        }
         if (sm.isImmortal) { 
         }
         else if (sm.isDefense == true)

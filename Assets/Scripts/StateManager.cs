@@ -7,6 +7,8 @@ public class StateManager : IActorManagerInterface
 
     //public ActorManager am;
 
+    public float playerExp = 0;
+    public float playerExpMax = 40;
     public float playerLv = 1.0f;
     public float HP = 50.0f;
     public float HPmax = 50.0f;
@@ -33,7 +35,7 @@ public class StateManager : IActorManagerInterface
 
     public void Test()
     {
-        print(HP);
+        //print(HP);
     }
 
     public void UpdateHP(float value)
@@ -44,8 +46,14 @@ public class StateManager : IActorManagerInterface
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        if (transform.tag == ("Enemy"))
+        {
+            HP = 500;
+            HPmax = 500;
+        }
+
         HP = HPmax;//刷新HP值
     }
 
@@ -72,6 +80,8 @@ public class StateManager : IActorManagerInterface
 
     public void PlayerLevelUp()
     {
+        playerExp= 0;
+        playerLv += 1;
         HPmax = 50 + playerLv * 10;
         HP = HPmax;
         playerATK += 3;

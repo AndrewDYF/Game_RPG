@@ -33,7 +33,7 @@ public class PlayController : MonoBehaviour
     private Vector3 thrustVec;//玩家累积移动的量
     private bool lockPlanar = false;//是否锁定速度向量
     private bool trackDiretion = false;//是否在执行动作时锁定人物方向
-    private bool canAttack;//人物处于可开启攻击状态
+    private bool canAttack=true;//人物处于可开启攻击状态
     private CapsuleCollider col;//摩擦力选择
     //private float lerpTarget;//记录要lerp的目标数，权重值将会向该数值靠近
     private Vector3 deltaPos;//声明一个记录模型移动情况的Vector3
@@ -182,6 +182,7 @@ public class PlayController : MonoBehaviour
             else
             {
                 anim.SetBool("defense", false); ;//退出防御状态
+                anim.SetLayerWeight(anim.GetLayerIndex("defense"), 0);
             }
         }
         else

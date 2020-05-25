@@ -33,7 +33,7 @@ public class MyTimer
             case STATE.FINISHED://计时结束
                 break;
             default:
-                Debug.Log("error");
+                Debug.Log("Timer error");
                     break;
         }
     }

@@ -8,22 +8,25 @@ public enum BossState
 {
     idle,
     run,
-    attack
+    attack,
+    defense
 }
+
 
 
 
 public class DummyIUserInput : IUserInput
 {
+    PlayController ac;
+
     public BossState CurrentState = BossState.idle;
-    protected Animation anim;
+
     protected Transform player;
     protected NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponentInChildren<Animation>();
         agent = GetComponentInChildren<NavMeshAgent>();
         player = GameObject.FindWithTag("Player").transform;
 
@@ -36,16 +39,18 @@ public class DummyIUserInput : IUserInput
     void Update()
     {
         float distance = Vector3.Distance(player.position, transform.position);
+        aimPlayer();
 
         switch (CurrentState)
         {
             case BossState.idle:
 
-                if (distance > 1 && distance <= 15)
+                if (distance > 2 && distance <= 15)
                 {
                     CurrentState = BossState.run;
                 }
                 agent.isStopped = true;
+                defense = false;
                 break;
             case BossState.run:
                 if (distance <= 2)
@@ -57,6 +62,7 @@ public class DummyIUserInput : IUserInput
                     CurrentState = BossState.idle;
                 }
                 agent.isStopped = false;
+                defense = false;
                 UpDown = 1;
                 agent.SetDestination(player.position);
                 
@@ -73,9 +79,25 @@ public class DummyIUserInput : IUserInput
                     CurrentState = BossState.run;
                 }
                 UpDown = 0;
+                defense = false;
                 Attack = true;
                 agent.isStopped = true;
                 lb = true;
+                break;
+            case BossState.defense:
+                defense = true;
+                if (distance <= 2)
+                {
+                    CurrentState = BossState.attack;
+                }
+                if (distance > 2 && distance <= 15)
+                {
+                    CurrentState = BossState.run;
+                }
+                if (distance > 15)
+                {
+                    CurrentState = BossState.idle;
+                }
                 break;
         }
 
@@ -84,6 +106,25 @@ public class DummyIUserInput : IUserInput
 
     }
 
+    void aimPlayer()
+    {
+        if (player.GetComponentInChildren<PlayController>().CheckStateTag("attackR"))
+        {
+            CurrentState = BossState.defense;
+        }
+        //Vector3 modelOrigin1 = ac.model.transform.position;//玩家坐标
+        //Vector3 modelOrigin2 = modelOrigin1 + new Vector3(0, 1, 0);//玩家视线坐标
+        //Vector3 boxCenter = modelOrigin2 + ac.model.transform.forward * 5.0f;
+        //Collider[] cols = Physics.OverlapBox(boxCenter, new Vector3(0.5f, 0.5f, 5f), ac.model.transform.rotation, LayerMask.GetMask("Player"));
+        //foreach (var col in cols)
+        //{
+        //    if (col.gameObject.transform.GetComponentInChildren<PlayController>().CheckStateTag("attackR"))
+        //    {
+        //        Debug.Log("ssss");
+        //        CurrentState = BossState.defense;
+        //    }
+        //}
+    }
 
 
 }

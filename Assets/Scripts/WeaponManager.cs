@@ -44,12 +44,12 @@ public class WeaponManager : IActorManagerInterface
         if (am.ac.CheckStateTag("attackL"))
         {
             weaponColL.enabled = true;
-            print("Lenable");
+            //print("Lenable");
         }
         else
         {
             weaponColR.enabled = true;
-            print("Renable");
+            //print("Renable");
         }
         
         
@@ -59,6 +59,6 @@ public class WeaponManager : IActorManagerInterface
     {
         weaponColR.enabled = false;
         weaponColL.enabled = false;
-        print("disable");
+        //print("disable");
     }
 }
